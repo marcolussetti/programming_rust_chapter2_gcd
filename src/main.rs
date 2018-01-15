@@ -1,6 +1,28 @@
+use std::io::Write;
+use std::str::FromStr;
+
 fn main() {
+    let mut numbers = Vec::new();
+
+    for arg in std::env::args().skip(1) {
+        numbers.push(u64::from_str(&arg).expect("error parsing argument"));
+        
+    }
+
+    if numbers.len() == 0 {
+        writeln!(std::io::stderr(), "Usage: gcd NUMBER ..." ).unwrap();
+        std::process::exit(1);
+    }s
+
+    let mut running_gcd = numbers[0];
+    for number in &numbers[1..] {
+        gcd = gcd(gcd, *number);
+    }
+
+    println!("The greatest common divisor of {:?} is {}", numbers, d)
+
     // println!("Hello, world!");
-    println!("{}", gcd(20, 30));
+    //println!("{}", gcd(20, 30));
 }
 
 fn gcd(mut a: u64, mut b: u64) -> u64 {
